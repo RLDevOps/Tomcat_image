@@ -10,8 +10,9 @@ RUN mv apache-tomcat-6.0.41.tar.gz /opt && yum -y install tar && tar -xvzf /opt/
 ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk.x86_64
 ENV CATAINA_HOME /opt/apache-tomcat-6.0.41
 ENV URL " " 
+ADD start_tomcat.sh /usr/bin/
+RUN chmod 755 /usr/bin/start_tomcat.sh 
 
-ENTRYPOINT ["/opt/apache-tomcat-6.0.41/bin/startup.sh" "&&" "tail" "-f" "/opt/apache-tomcat-6.0.41/logs/catalina.out"]
 
 EXPOSE 8080
-CMD ["wget" "-O" "/opt/apache-tomcat-6.0.41/webapps/" "$URL" ]
+CMD ["/usr/bin/start_tomcat.sh", "&&","wget", "-O", "/opt/apache-tomcat-6.0.41/webapps/", "$URL" ]
