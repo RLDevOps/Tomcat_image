@@ -14,4 +14,4 @@ ENV URL
 ENTRYPOINT ["/opt/apache-tomcat-6.0.41/bin/startup.sh" "&&" "tail" "-f" "/opt/apache-tomcat-6.0.41/logs/catalina.out"]
 
 EXPOSE 8080
-CMD ["cp" "$URL" "/opt/apache-tomcat-6.0.41/webapps/"]
+CMD ["wget" "-O" "/opt/apache-tomcat-6.0.41/webapps/" "$URL" ]
