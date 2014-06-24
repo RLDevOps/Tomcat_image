@@ -1,6 +1,6 @@
 FROM centos
 
-RUN yum update
+RUN yum -y update
 RUN yum install -y java-1.7.0-openjdk-devel
 
 RUN yum install -y wget && wget http://psg.mtu.edu/pub/apache/tomcat/tomcat-6/v6.0.41/bin/apache-tomcat-6.0.41.tar.gz
