@@ -13,6 +13,6 @@ ENV URL " "
 ADD start_tomcat.sh /usr/bin/
 RUN chmod 755 /usr/bin/start_tomcat.sh 
 
-
+ENTRYPOINT ["/usr/bin/start_tomcat.sh"]
 EXPOSE 8080
-CMD ["/usr/bin/start_tomcat.sh", "&&","wget", "-O", "/opt/apache-tomcat-6.0.41/webapps/", "$URL" ]
+CMD ["&&","wget", "-O", "/opt/apache-tomcat-6.0.41/webapps/", "$URL" ]
