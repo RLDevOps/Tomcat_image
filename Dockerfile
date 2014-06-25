@@ -14,6 +14,7 @@ ADD start_tomcat.sh /usr/bin/
 RUN chmod 755 /usr/bin/start_tomcat.sh 
 ADD mysqldb.properties /opt/
 RUN chmod 755 /opt/mysqldb.properties
+ADD webportal.war /opt/apache-tomcat-6.0.41/webapps/
 
 EXPOSE 8080
 CMD ["/usr/bin/start_tomcat.sh" ]
