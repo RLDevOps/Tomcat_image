@@ -12,6 +12,8 @@ ENV CATAINA_HOME /opt/apache-tomcat-6.0.41
 ENV URL " " 
 ADD start_tomcat.sh /usr/bin/
 RUN chmod 755 /usr/bin/start_tomcat.sh 
+ADD mysqldb.properties /opt/
+RUN chmod 755 /opt/mysqldb.properties
 ADD webportal.war /opt/apache-tomcat-6.0.41/webapps/
 RUN chmod 755 /opt/apache-tomcat-6.0.41/webapps/webportal.war
 RUN echo "#Jcatalog logs" > /opt/apache-tomcat-6.0.41/logs/catalog.log
